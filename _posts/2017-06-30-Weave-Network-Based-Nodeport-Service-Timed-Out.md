@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bug: Weave Network Based Nodeport Service Timed Out 
+title:  "Bug: Weave Network Based Nodeport Service Timed Out"
 categories: Network
 tags:  Weave Network ProblemAnalysis
 author: RLCAO
