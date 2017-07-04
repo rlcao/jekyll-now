@@ -4,6 +4,7 @@ title:  "Howto: Setup Blog on Github Using Jekyll"
 categories: Writing
 tags: GitHub Pages 
 author: RLCAO
+comments: true
 ---
 ## Why Github Pages
 1. Github pages are static pages, which means faster and secure
