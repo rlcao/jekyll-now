@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+See below for more information! 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+A Complex Person Who Would Like to Become Simple Kind
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[caoronglu@gmail.com](mailto:caoronglu@gmail.com)
