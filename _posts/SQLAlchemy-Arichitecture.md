@@ -92,6 +92,7 @@ Entity 'user1' is garbage collected
 * Auto flush just before the next query
 * Unit of work: no need to care about the primary/foreign key record insertion order
 * Don't share data between different sessions
+![screen shot 2019-03-06 at 8 00 31 pm](https://user-images.githubusercontent.com/6065072/53879905-96024700-404a-11e9-81e7-b0c0b5c6d0ad.png)
 
 **Comments on Active Record Persistence mode**
 * thread local and auto commit
