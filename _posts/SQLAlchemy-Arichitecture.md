@@ -132,3 +132,27 @@ Benefits of using SQLAlchemy:
 * lazy loading: one-> many relation. load on access
 * eager loading: used when lazy loading is not what you want - foreach then access the many relationship
 * method chaining to compose sql string.
+
+Access foreign key relationship field of a detached domain object will produce following error:
+```
+>>> ed_user.addrs
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/Users/ronglucao/gitws/learn-sqlalchemy/venv/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 276, in __get__
+    return self.impl.get(instance_state(instance), dict_)
+  File "/Users/ronglucao/gitws/learn-sqlalchemy/venv/lib/python2.7/site-packages/sqlalchemy/orm/attributes.py", line 682, in get
+    value = self.callable_(state, passive)
+  File "/Users/ronglucao/gitws/learn-sqlalchemy/venv/lib/python2.7/site-packages/sqlalchemy/orm/strategies.py", line 685, in _load_for_state
+    % (orm_util.state_str(state), self.key)
+sqlalchemy.orm.exc.DetachedInstanceError: Parent instance <User at 0x1033aff10> is not bound to a Session; lazy load operation of attribute 'addrs' cannot proceed (Background on this error at: http://sqlalche.me/e/bhk3)
+>>> state=inspect(ed_user)
+>>> state.detached
+True
+>>> dir(state)
+['__class__', '__delattr__', '__dict__', '__doc__', '__format__', '__getattribute__', '__getstate__', '__hash__', '__init__', '__module__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__setstate__', '__sizeof__', '__slots__', '__str__', '__subclasshook__', '__weakref__', '_attached', '_cleanup', '_commit', '_commit_all', '_commit_all_states', '_copy_callables', '_deleted', '_detach', '_detach_states', '_dispose', '_expire', '_expire_attributes', '_get_pending_mutation', '_initialize_instance', '_instance_dict', '_instance_level_callable_processor', '_is_internal_proxy', '_last_known_values', '_load_expired', '_load_pending', '_modified_event', '_orphaned_outside_of_session', '_pending_mutations', '_reset', '_strong_obj', '_track_last_known_value', '_unloaded_non_object', 'attrs', 'callables', 'class_', 'committed_state', 'deleted', 'detached', 'dict', 'expired', 'expired_attributes', 'extension_type', 'get_history', 'get_impl', 'has_identity', 'identity', 'identity_key', 'identity_token', 'info', 'insert_order', 'is_aliased_class', 'is_attribute', 'is_clause_element', 'is_instance', 'is_mapper', 'is_property', 'is_selectable', 'key', 'load_options', 'load_path', 'manager', 'mapper', 'modified', 'obj', 'object', 'parents', 'pending', 'persistent', 'runid', 'session', 'session_id', 'transient', 'unloaded', 'unloaded_expirable', 'unmodified', 'unmodified_intersection', 'was_deleted']
+>>> state.expired
+False
+>>> state.session
+>>> print state.session
+None
+```
