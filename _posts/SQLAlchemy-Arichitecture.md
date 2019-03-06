@@ -156,3 +156,9 @@ False
 >>> print state.session
 None
 ```
+
+BTW, connectionless execution on engine directly:
+```
+conn = engine.connect()
+conn.execute("INSERT INTO users VALUES (1, 'john')")  # autocommits
+```
