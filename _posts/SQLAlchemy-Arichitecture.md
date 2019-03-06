@@ -93,4 +93,24 @@ Entity 'user1' is garbage collected
 * Unit of work: no need to care about the primary/foreign key record insertion order
 * Don't share data between different sessions
 
-**Comments on Active Record Persistence mode** 
+**Comments on Active Record Persistence mode**
+* thread local and auto commit
+* user1 = User.get(id=5); user2=User.get(id=5); user1 is user2 => False
+* operations are committed immediately.
+issues:
+* you need to make sure they are inserted in the right order
+* different function need to make sure fetch and refetch carefully.
+* uncommited can be leaked into another transaction
+
+ACID:
+* Atomic: all or none, no other state
+* Consistency: not null/foreign key/primary key
+* Isolation: locking/multi-version concurrency control
+* Durable: safe after commit
+
+Object as Row Proxy:
+* Object is result of SELECT/INSERT statement
+* Expired: With no transaction present - no value available in object
+* Transient: object outside of session, no row is coresponding to it
+* Pending: inside session, but not pushed/coresponding to any row
+* Detached: a previously persistent object, but no longer attached to a session.
