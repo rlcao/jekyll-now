@@ -135,6 +135,22 @@ Benefits of using SQLAlchemy:
 
 Access foreign key relationship field of a detached domain object will produce following error:
 ```
+>>> list(session)
+[2019-03-06 23:11:27,280 INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+2019-03-06 23:11:27,281 INFO sqlalchemy.engine.base.Engine SELECT user.id AS user_id, user.name AS user_name, user.fullname AS user_fullname, user.nickname AS user_nickname
+FROM user
+WHERE user.id = ?
+2019-03-06 23:11:27,281 INFO sqlalchemy.engine.base.Engine (7,)
+<User(name='ed', fullname='Ed Jones', nickname='edsnickname')>, <__main__.Address object at 0x105926910>]
+>>> session.dirty
+IdentitySet([])
+>>> session.new
+IdentitySet([])
+>>> session.deleted
+IdentitySet([])
+>>> session.identity_map
+<sqlalchemy.orm.identity.WeakInstanceDict object at 0x105926e90>
+>>> session.close()
 >>> ed_user.addrs
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
