@@ -1,13 +1,5 @@
 Step By Step on SQLAlchemy State Transition
-1. create transient domain object
-2. create session from engine 
-3. add domain object in session
-4. flush(auto flush before next query)
-5. connection established
-6. flush ended
-7. expire domain objects
-8. load domain objects
-9. ...
+1. create domain object - transient
 ```
 Entity 'user1' is instantiated
 Attribute 'name' on entity 'user1' is set to value 'ed'
@@ -21,11 +13,17 @@ Attribute 'email' on entity 'address3' is set to value 'edward@python.net'
 Append entity 'address1' to collection 'addresses' on entity 'user1'
 Append entity 'address2' to collection 'addresses' on entity 'user1'
 Append entity 'address3' to collection 'addresses' on entity 'user1'
+```
+2. Create Session 
+```
 session starts a transaction container
 Entity 'user1' moves from transient to pending
 Entity 'address1' moves from transient to pending
 Entity 'address2' moves from transient to pending
 Entity 'address3' moves from transient to pending
+```
+3. Flush
+```
 flush begins
 Connection established
 a 'snapshot' is established in the database session
@@ -45,6 +43,9 @@ Entity 'address2' moves from pending to persistent
 Entity 'user1' moves from pending to persistent
 Entity 'address1' moves from pending to persistent
 flush ends
+```
+4. Invalidate Domain Objects - Expired
+```
 the 'snapshot' is committed
 Expire attributes 'id', 'email', 'user_id' on entity 'address3'
 Expire attributes 'id', 'email', 'user_id' on entity 'address1'
@@ -55,6 +56,9 @@ Entity 'address2' is garbage collected
 Entity 'address1' is garbage collected
 Connection removed
 session's transaction container ended
+```
+5. Query Started New Transaction
+```
 session starts a transaction container
 Connection established
 a 'snapshot' is established in the database session
@@ -67,12 +71,18 @@ Create empty collection 'addresses' on entity 'user1'
 Append entity 'address1' to collection 'addresses' on entity 'user1'
 Append entity 'address2' to collection 'addresses' on entity 'user1'
 Append entity 'address3' to collection 'addresses' on entity 'user1'
+```
+6. Update an Object
+```
 Attribute 'email' on entity 'address2' is set to value 'edward@gmail.com'
 Entity 'address2' is added to the session.dirty list
 flush begins
 execute UPDATE statement on table 'address'
 flush ends
 the 'snapshot' is committed
+```
+7. Expire Domain Objects
+```
 Expire attributes 'addresses', 'id', 'name' on entity 'user1'
 Entity 'address3' is garbage collected
 Entity 'address2' is garbage collected
