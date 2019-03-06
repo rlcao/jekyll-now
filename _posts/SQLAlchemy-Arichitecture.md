@@ -125,3 +125,10 @@ Object as Row Proxy:
 * Transient: object outside of session, no row is coresponding to it
 * Pending: inside session, but not pushed/coresponding to any row
 * Detached: a previously persistent object, but no longer attached to a session.
+
+Benefits of using SQLAlchemy:
+* unit of work: track changes on domain object and auto flush out
+* identity map: same primary key, you get the same instance
+* lazy loading: one-> many relation. load on access
+* eager loading: used when lazy loading is not what you want - foreach then access the many relationship
+* method chaining to compose sql string.
