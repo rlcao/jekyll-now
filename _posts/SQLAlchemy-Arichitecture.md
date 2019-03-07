@@ -178,3 +178,24 @@ BTW, connectionless execution on engine directly:
 conn = engine.connect()
 conn.execute("INSERT INTO users VALUES (1, 'john')")  # autocommits
 ```
+
+https://youtu.be/399c-ycBvo4
+Notes:
+1. disks are really slow compared with cache and memory
+2. relational database are using foreign key/split tables to reduce duplication
+3. to gain complete information about something, rdbms needs pull things from different tables
+4. some database has the ability to optimize the query base on the data statistics
+5. Best practices when using sql: ask one single question whenever possible
+* don't query records and then iterate through its one-to-many items
+* fix this by eager loading
+* fix this by aggregate this into single query
+6. Why SQLAlchemy is great?
+* Allow dev to write native and pythonic code for sql access
+* Compose sql from your chained queries
+* Unit of work: query and push only when necessary
+* Django ORM lacks unit of work, while SQLAlchemy does have unit of work.
+
+
+
+
+
