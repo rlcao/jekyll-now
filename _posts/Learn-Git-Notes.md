@@ -770,13 +770,16 @@ $ git clone user@git.example.com:/srv/git/my_project.git
 ![image](https://user-images.githubusercontent.com/6065072/53697416-c4461380-3e0b-11e9-8d44-85be2cba1166.png)
 
 ### Git reset
+**Current Checkin Chain**
 A <- B <- C(current reference)
 git reset <option> B
+	
 | Git Reset Option | Repo | Index | WorkingDirectory|
 | ------ | ------ | ------ | ------ |
 | --soft| B | C |C|
 | --mixed(default)| B | B |C|
 | --soft| B|B|B|
+
 ![image](https://user-images.githubusercontent.com/6065072/53697482-7b428f00-3e0c-11e9-8b57-8f032c7e1ff8.png)
 
 ### reflog to record ref history
@@ -789,12 +792,12 @@ c5ad138 master@{2}: commit: from master branch on file3.txt
 08ebda4 master@{4}: commit: adding file3.txt
 ```
 # References
-How merge works - https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
-Switch to another branch - https://hackernoon.com/understanding-git-index-4821a0765cf
-How index works - 
-https://msdn.microsoft.com/en-us/magazine/mt493250.aspx
-https://stackoverflow.com/questions/21309490/how-do-contents-of-git-index-evolve-during-a-merge-and-whats-in-the-index-afte
-http://alblue.bandlem.com/2011/10/git-tip-of-week-index-revisited.html
-Index format - https://github.com/git/git/blob/master/Documentation/technical/index-format.txt
-Git internals - https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
-Revision Pointors - https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
+* How merge works - https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging
+* Switch to another branch - https://hackernoon.com/understanding-git-index-4821a0765cf
+* How index works - 
+1. https://msdn.microsoft.com/en-us/magazine/mt493250.aspx
+2. https://stackoverflow.com/questions/21309490/how-do-contents-of-git-index-evolve-during-a-merge-and-whats-in-the-index-afte
+3. http://alblue.bandlem.com/2011/10/git-tip-of-week-index-revisited.html
+* Index format - https://github.com/git/git/blob/master/Documentation/technical/index-format.txt
+* Git internals - https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
+* Revision Pointors - https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
