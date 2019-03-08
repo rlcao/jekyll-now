@@ -109,15 +109,20 @@ $ tree .git/objects
 │   └── 8e5bd086a1866206ce369a622d4c2bc73cf95a
 ```
 4. Load tree in staging area
+
 **how index works:**
+
 index is not only to support a staging area, but also to facilitate the ability of Git to detect changes to files in your working directory; to me-diate the branch-merge process, so you can resolve conflicts on a file-by-file basis and safely abort the merge at any time; and to convert staged files and folders into tree objects whose references are written to the next commit object. Git also uses the index to retain information about files in the working tree and about objects retrieved from the DAG—and thus further leveraging the index as a type of cache.
 
 **git ls-files -s stage number usage**
+
 The different stage numbers are not really used during git-add command. They are used for handling merge conflicts. In a nutshell:
-Slot 0: “normal”, un-conflicted, all-is-well entry.
-Slot 1: “base”, the common ancestor version.
-Slot 2: “ours”, the target (HEAD) version.
-Slot 3: “theirs”, the being-merged-in version.
+
+- Slot 0: “normal”, un-conflicted, all-is-well entry.
+- Slot 1: “base”, the common ancestor version.
+- Slot 2: “ours”, the target (HEAD) version.
+- Slot 3: “theirs”, the being-merged-in version.
+
 Git index, or Git cache, has 3 important properties:
 The index contains all the information necessary to generate a single (uniquely determined) tree object.
 The index enables fast comparisons between the tree object it defines and the working tree.
@@ -368,7 +373,7 @@ $ tree .git
 ### Pull from Remote Repository
 ```
 $ git pull origin dev
-From https://alm.oraclecorp.com/sresyseng/s/sresyseng_sre-ops-scripts_12926/scm/learn-git
+From https://<gitserver>/learn-git
  * branch            dev        -> FETCH_HEAD
 Updating 08d48d2..7eafe14
 Fast-forward
