@@ -806,3 +806,4 @@ c5ad138 master@{2}: commit: from master branch on file3.txt
 * Index format - https://github.com/git/git/blob/master/Documentation/technical/index-format.txt
 * Git internals - https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
 * Revision Pointors - https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection
+* Git Revert/Reset/Checkout - https://dev.to/neshaz/when-to-use-git-reset-git-revert--git-checkout-18je
