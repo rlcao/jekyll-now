@@ -155,9 +155,9 @@ def follow_user(user_id):
 **Session Setup in Steps:**
 1. Client send username/password data via https connection to server
 ```
-#post following data to kermit ui login
-sreusername=<username>
-srepassword=<password>
+#post following data to ui login
+username=<username>
+password=<password>
 a=login
 ```
 2. Server authorize the username, and generate token, save the token into session data. It then send session id as PHPSESSID value in set-cookie response header
@@ -165,7 +165,7 @@ a=login
 ```php
 curl_setopt_array($curlobj, array(
              CURLOPT_URL => $login_url,
-             CURLOPT_USERAGENT => 'Kermit request',
+             CURLOPT_USERAGENT => 'Request',
              CURLOPT_USERPWD => "$username:$password",
              CURLOPT_RETURNTRANSFER => 1,
              CURLOPT_SSL_VERIFYPEER, false,
@@ -203,7 +203,7 @@ def user_login():
 ```
 - save the token in session
 ```php
-$_SESSION[sess_kermitcoookie] = $rs['cookie'];
+$_SESSION[sess_coookie] = $rs['cookie'];
 $_SESSION[sess_userauthorized] = true;
 ```
 - set the session id by
