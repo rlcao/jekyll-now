@@ -20,11 +20,13 @@ By using Cookies we can exchange information between the server and the browser 
 Cookies are essentially used to store a session id.
 In the past cookies were used to store various types of data, since there was no alternative. But nowadays with the Web Storage API (Local Storage and Session Storage) and IndexedDB, we have much better alternatives.
 Especially because cookies have a very low limit in the data they can hold, since they are sent back-and-forth for every HTTP request to our server - including requests for assets like images or CSS/JavaScript files.
+
 **Restrictions of cookies:**
 - Cookies can only store 4KB of data
 - Cookies are private to the domain. A site can only read the cookies it set, not other domains cookies
 - You can have up to 20 limits of cookies per domain (but the exact number depends on the specific browser implementation)
 - Cookies are limited in their total number (but the exact number depends on the specific browser implementation). If this number is exceeded, new cookies replace the older ones.
+
 **Cookies can be set or read server side, or client side.**
 ##### 1.3 PHP Session Explained
 - default cookie key name: PHPSESSID
@@ -35,7 +37,7 @@ Especially because cookies have a very low limit in the data they can hold, sinc
 - session id can be regenerated for purpose of security
 - php server wide configuration reside in /etc/php.ini file, where you can find the session file save path.
 - session data can be stored in database where you can share session between server nodes
-- storing data using $_SESSION["name"] = "rongcao", unset $_SESSION["name"] will delete the key from session data
+- storing data using $_SESSION["name"] = "fakename", unset $_SESSION["name"] will delete the key from session data
 ##### 1.4 Python Flask-HttpBasicAuth Package
 Here are the notes for document: https://flask-httpauth.readthedocs.io/en/latest/
 - Create HttpBasicAuth instance, which will hold decorator callback data registerred
