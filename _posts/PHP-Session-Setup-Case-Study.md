@@ -227,9 +227,9 @@ Cookie: PHPSESSID=3fl06lbf8aamkq8p0cug1k4uj7;
      ......
 ```
 # Reference
-Cookie and Session: https://zhuanlan.zhihu.com/p/27669892
-Cookie Explained: https://flaviocopes.com/cookies/
-Flask HttpAuth: https://flask-httpauth.readthedocs.io/en/latest/
+- Cookie and Session: https://zhuanlan.zhihu.com/p/27669892
+- Cookie Explained: https://flaviocopes.com/cookies/
+- Flask HttpAuth: https://flask-httpauth.readthedocs.io/en/latest/
 
 # NOTE
 There is a technology that recently got popular, called JSON Web Tokens (JWT), which is a Token-based Authentication.
