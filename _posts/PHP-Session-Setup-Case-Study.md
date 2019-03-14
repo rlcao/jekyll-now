@@ -10,12 +10,12 @@ By using Cookies we can exchange information between the server and the browser 
   - Client send request without cookie
   - Server generate a cookie, and send respose with header 'set-cookie', example:
   ```
-  set-cookie: PHPSESSID=3fl06lbf8aamkq8p0cug1k4uj7; path=/; expires=Wed,10-Oct-19 07:12:20 GMT
+  set-cookie: PHPSESSID=3fl0***********ug1k4uj7; path=/; expires=Wed,10-Oct-19 07:12:20 GMT
   ```
 - Subequent Request Workflow
   - Client send request with cookie:
   ```
-  Cookie: PHPSESSID=3fl06lbf8aamkq8p0cug1k4uj7
+  Cookie: PHPSESSID=3fl0***********ug1k4uj7
   ```
 Cookies are essentially used to store a session id.
 In the past cookies were used to store various types of data, since there was no alternative. But nowadays with the Web Storage API (Local Storage and Session Storage) and IndexedDB, we have much better alternatives.
