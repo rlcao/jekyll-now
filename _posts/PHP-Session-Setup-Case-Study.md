@@ -242,3 +242,4 @@ There is a technology that recently got popular, called JSON Web Tokens (JWT), w
 - CI/CD(deployment)
 - DNS Based Load Balancer
 - Centralize Log Using ELK/Splunk
+- Web Page Caching
